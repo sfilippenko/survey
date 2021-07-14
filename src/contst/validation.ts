@@ -1,3 +1,3 @@
 export const errorHints = {
-  required: 'Поле должно быть заполнено',
+  required: 'Поле обязательно для заполнения',
 };

@@ -30,7 +30,7 @@ const Root: FC = () => {
                   <FormTitle required>Имя</FormTitle>
                 </Grid>
                 <Grid item xs={12} sm={9}>
-                  <InputFormField name="name" />
+                  <InputFormField name="name" required />
                 </Grid>
               </Grid>
               <Button type="submit" disabled={isSubmitting || !dirty}>
