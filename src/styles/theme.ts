@@ -10,7 +10,12 @@ export default createTheme({
       },
     },
     MuiCssBaseline: {
-      '@global': {},
+      '@global': {
+        body: {
+          backgroundColor: '#ffffff',
+          fontSize: 16,
+        },
+      },
     },
   },
 });

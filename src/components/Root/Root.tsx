@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 import Grid from '@material-ui/core/Grid';
 import Button from '../Button';
 import { InputFormField } from '../Input';
+import FormTitle from '../FormTitle';
 
 interface Form {
   name: string;
@@ -21,18 +22,18 @@ const Root: FC = () => {
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
-        {({ handleSubmit, isSubmitting }) => {
+        {({ handleSubmit, isSubmitting, dirty }) => {
           return (
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2} alignItems="center">
                 <Grid item xs={12} sm={3}>
-                  Name
+                  <FormTitle required>Имя</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={3}>
+                <Grid item xs={12} sm={9}>
                   <InputFormField name="name" />
                 </Grid>
               </Grid>
-              <Button type="submit" disabled={isSubmitting}>
+              <Button type="submit" disabled={isSubmitting || !dirty}>
                 Отправить
               </Button>
             </form>
