@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { Formik, FormikErrors } from 'formik';
+import { Formik, FormikErrors, FormikHelpers } from 'formik';
 import Grid from '@material-ui/core/Grid';
 import Button from '../Button';
 import { InputFormField } from '../Input';
@@ -37,14 +37,19 @@ const validate = (values: Form) => {
 };
 
 const Root: FC = () => {
-  const onSubmit = useCallback(async (values: Form) => {
+  const onSubmit = useCallback(async (values: Form, helpers: FormikHelpers<Form>) => {
     await new Promise((res) => setTimeout(res, 2000));
     console.log(values);
+    helpers.resetForm();
   }, []);
 
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validate={validate}
+        enableReinitialize>
         {({ handleSubmit, isSubmitting, dirty }) => {
           return (
             <form onSubmit={handleSubmit}>
