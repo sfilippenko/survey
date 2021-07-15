@@ -60,6 +60,7 @@ const CheckboxList: FC<Props> = (props) => {
           value={value?.length === options?.length}
           onChange={handleCheckAll}
           label={<strong>Выделить все</strong>}
+          {...rest}
         />
       )}
     </div>
