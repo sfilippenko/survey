@@ -2,25 +2,30 @@ import { ChangeEvent, FC, DetailedHTMLProps, InputHTMLAttributes, useCallback } 
 import classNames from 'classnames';
 import useStyles from './styles';
 
+export interface Params {
+  customId?: any;
+}
+
 export interface Props
   extends Omit<
     DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
     'onChange'
   > {
-  onChange: (values: string) => void;
+  onChange: (values: string, params?: Params) => void;
   value: string;
   onBlur?: () => void;
+  customId?: any;
 }
 
 const Input: FC<Props> = (props) => {
-  const { value, onChange, onBlur, className, ...rest } = props;
+  const { value, onChange, onBlur, className, customId, ...rest } = props;
   const classes = useStyles();
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e.target.value);
+      onChange(e.target.value, { customId });
     },
-    [onChange],
+    [onChange, customId],
   );
 
   return (

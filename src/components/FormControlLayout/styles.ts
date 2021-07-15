@@ -3,9 +3,17 @@ import { COLORS } from '../../styles/consts';
 
 export default makeStyles({
   container: {},
-  error: {
-    color: COLORS.RED,
+
+  subText: {
     fontSize: 10,
     marginTop: 4,
+  },
+
+  error: {
+    color: COLORS.RED,
+  },
+
+  helperText: {
+    color: COLORS.GREY,
   },
 });

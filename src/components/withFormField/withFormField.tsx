@@ -17,7 +17,7 @@ function withFormField<Props, OnChange, Value = (value: any) => void>(
   const FormField: FC<MakeFormFieldProps<OnChange> & Omit<Props, 'value' | 'onChange'>> = (
     props,
   ) => {
-    const { name, disabled, onChange: onChangeProp, required, ...rest } = props;
+    const { name, disabled, onChange: onChangeProp, required, helperText, ...rest } = props;
 
     const validate = useCallback(
       (value: any) => {
@@ -48,7 +48,7 @@ function withFormField<Props, OnChange, Value = (value: any) => void>(
           })();
 
           return (
-            <FormControlLayout errorText={calculatedErrorText}>
+            <FormControlLayout errorText={calculatedErrorText} helperText={helperText}>
               <Component
                 onBlur={handleBlur}
                 name={name}
