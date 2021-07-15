@@ -4,13 +4,16 @@ import Grid from '@material-ui/core/Grid';
 import Button from '../Button';
 import { InputFormField } from '../Input';
 import FormTitle from '../FormTitle';
+import { InputNumberFormField } from '../InputNumber';
 
 interface Form {
   name: string;
+  age: string;
 }
 
 const initialValues: Form = {
   name: '',
+  age: '',
 };
 
 const Root: FC = () => {
@@ -32,10 +35,19 @@ const Root: FC = () => {
                 <Grid item xs={12} sm={9}>
                   <InputFormField name="name" required />
                 </Grid>
+                <Grid item xs={12} sm={3}>
+                  <FormTitle required>Возраст</FormTitle>
+                </Grid>
+                <Grid item xs={12} sm={9}>
+                  <InputNumberFormField name="age" required />
+                </Grid>
+                <Grid item xs={12} sm={3} />
+                <Grid item xs={12} sm={9}>
+                  <Button type="submit" disabled={isSubmitting || !dirty}>
+                    Отправить
+                  </Button>
+                </Grid>
               </Grid>
-              <Button type="submit" disabled={isSubmitting || !dirty}>
-                Отправить
-              </Button>
             </form>
           );
         }}

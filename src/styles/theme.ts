@@ -15,6 +15,19 @@ export default createTheme({
           backgroundColor: '#ffffff',
           fontSize: 16,
         },
+        input: {
+          '&::-webkit-outer-spin-button': {
+            '-webkit-appearance': 'none',
+            margin: 0,
+          },
+          '&::-webkit-inner-spin-button': {
+            '-webkit-appearance': 'none',
+            margin: 0,
+          },
+          '&[type=number]': {
+            '-moz-appearance': 'textfield',
+          },
+        },
       },
     },
   },

@@ -14,5 +14,11 @@ export default makeStyles({
       backgroundColor: COLORS.YELLOW_LIGHT,
       color: COLORS.GREY,
     },
+    '&:hover': {
+      '&:not(:disabled)': {
+        cursor: 'pointer',
+        backgroundColor: COLORS.YELLOW_HOVER,
+      },
+    },
   },
 });
