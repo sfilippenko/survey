@@ -6,17 +6,21 @@ import { InputFormField } from '../Input';
 import FormTitle from '../FormTitle';
 import { InputNumberFormField } from '../InputNumber';
 import { InputListFormField } from '../InputList';
+import { CheckboxListFormField } from '../CheckboxList';
+import { skillsOptions } from '../../contst/options';
 
 interface Form {
   name: string;
   age: string;
   education: string[];
+  skills: number[];
 }
 
 const initialValues: Form = {
   name: '',
   age: '',
   education: [''],
+  skills: [],
 };
 
 const validate = (values: Form) => {
@@ -60,6 +64,17 @@ const Root: FC = () => {
                     name="education"
                     placeholder="Например, ВолгГАСУ"
                     helperText="Укажите учебные заведения, в которых вы учились"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={3} />
+                <Grid item xs={12} sm={3}>
+                  <FormTitle>Навыки</FormTitle>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CheckboxListFormField
+                    name="skills"
+                    options={skillsOptions}
+                    helperText="Отметьте ваши навыки"
                   />
                 </Grid>
                 <Grid item xs={12} sm={3} />

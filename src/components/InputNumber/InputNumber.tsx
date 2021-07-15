@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import classNames from 'classnames';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -45,4 +45,4 @@ const InputNumber: FC<Props> = (props) => {
   );
 };
 
-export default InputNumber;
+export default memo(InputNumber);

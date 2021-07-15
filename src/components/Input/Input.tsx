@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, DetailedHTMLProps, InputHTMLAttributes, useCallback } from 'react';
+import { ChangeEvent, FC, DetailedHTMLProps, InputHTMLAttributes, useCallback, memo } from 'react';
 import classNames from 'classnames';
 import useStyles from './styles';
 
@@ -39,4 +39,4 @@ const Input: FC<Props> = (props) => {
   );
 };
 
-export default Input;
+export default memo(Input);

@@ -1,4 +1,4 @@
-import { ComponentType, FC, memo, useCallback } from 'react';
+import { ComponentType, FC, memo, useCallback, useRef } from 'react';
 import { Field, FieldProps } from 'formik';
 import FormControlLayout, { FormControlLayoutProps } from '../FormControlLayout';
 import { isEmpty } from '../../utils/validation';
@@ -19,6 +19,9 @@ function withFormField<Props, OnChange, Value = (value: any) => void>(
   ) => {
     const { name, disabled, onChange: onChangeProp, required, helperText, ...rest } = props;
 
+    const onChangeRef = useRef<any>();
+    const onBlurRef = useRef<any>();
+
     const validate = useCallback(
       (value: any) => {
         if (required && isEmpty(value)) {
@@ -33,29 +36,28 @@ function withFormField<Props, OnChange, Value = (value: any) => void>(
         {(fieldProps: FieldProps<Value>) => {
           const { field, form, meta } = fieldProps;
 
-          const onChange =
-            onChangeProp ||
-            ((value: Value) => {
-              form.setFieldValue(field.name, value);
-            });
+          if (!onChangeRef.current) {
+            onChangeRef.current =
+              onChangeProp ||
+              ((value: Value) => {
+                form.setFieldValue(field.name, value);
+              });
+          }
 
-          const handleBlur = () => {
-            form.setFieldTouched(field.name, true);
-          };
-
-          const calculatedErrorText = (() => {
-            return meta.touched ? meta.error : '';
-          })();
+          if (!onBlurRef.current) {
+            onBlurRef.current = () => {
+              form.setFieldTouched(field.name, true);
+            };
+          }
 
           return (
-            <FormControlLayout errorText={calculatedErrorText} helperText={helperText}>
+            <FormControlLayout errorText={meta.touched ? meta.error : ''} helperText={helperText}>
               <Component
-                onBlur={handleBlur}
+                onBlur={onBlurRef.current}
                 name={name}
                 disabled={form.isSubmitting || disabled}
-                error={!!calculatedErrorText}
                 value={field.value}
-                onChange={onChange as OnChange}
+                onChange={onChangeRef.current}
                 {...(rest as any)}
               />
             </FormControlLayout>

@@ -18,5 +18,8 @@ export default makeStyles({
     '&::placeholder': {
       color: COLORS.GREY,
     },
+    '&:disabled': {
+      backgroundColor: COLORS.GREY_LIGHT,
+    },
   },
 });

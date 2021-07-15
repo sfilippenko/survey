@@ -5,7 +5,7 @@ export default makeStyles({
   container: {},
 
   subText: {
-    fontSize: 10,
+    fontSize: 12,
     marginTop: 4,
   },
 

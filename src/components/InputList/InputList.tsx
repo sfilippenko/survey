@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef } from 'react';
+import { FC, useCallback, useEffect, useRef, memo } from 'react';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import ControlPointIcon from '@material-ui/icons/ControlPoint';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
@@ -83,4 +83,4 @@ const InputList: FC<Props> = (props) => {
   );
 };
 
-export default InputList;
+export default memo(InputList);
