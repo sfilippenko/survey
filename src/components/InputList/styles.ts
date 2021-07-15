@@ -44,4 +44,8 @@ export default makeStyles({
   deleteIcon: {
     color: COLORS.RED,
   },
+
+  addButtonXSWrapper: {
+    marginTop: 12,
+  },
 });

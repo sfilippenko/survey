@@ -69,39 +69,39 @@ const Root: FC = () => {
                 <Grid item xs={12} sm={3}>
                   <FormTitle required>Семейное положение</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={9} md={4}>
                   <SelectFormField name="marriage" required options={marriageOptions} />
                 </Grid>
-                <Grid item xs={12} sm={5} />
+                <Grid item xs={12} md={5} />
                 <Grid item xs={12} sm={3}>
                   <FormTitle>ВУЗ</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={7}>
+                <Grid item xs={12} sm={9} md={7}>
                   <InputListFormField
                     name="education"
                     placeholder="Например, ВолгГАСУ"
                     helperText="Укажите учебные заведения, в которых вы учились"
                   />
                 </Grid>
-                <Grid item xs={12} sm={2} />
+                <Grid item xs={12} md={2} />
                 <Grid item xs={12} sm={3}>
                   <FormTitle>Место рождения</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={9} md={4}>
                   <SelectFormField name="birthdayPlace" required options={citiesOptions} />
                 </Grid>
-                <Grid item xs={12} sm={5} />
+                <Grid item xs={12} md={5} />
                 <Grid item xs={12} sm={3}>
                   <FormTitle>Навыки</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={9} md={6}>
                   <CheckboxListFormField
                     name="skills"
                     options={skillsOptions}
                     helperText="Отметьте ваши навыки"
                   />
                 </Grid>
-                <Grid item xs={12} sm={3} />
+                <Grid item xs={12} md={3} />
                 <Grid item xs={12} sm={3} />
                 <Grid item xs={12} sm={9}>
                   <Button type="submit" disabled={isSubmitting || !dirty}>

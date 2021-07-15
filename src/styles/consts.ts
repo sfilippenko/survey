@@ -9,6 +9,14 @@ export const COLORS = {
   BLUE: '#1358bf',
 };
 
+export const BREAKPOINTS = {
+  XS: 0,
+  SM: 600,
+  MD: 960,
+  LG: 1280,
+  XL: 1920,
+};
+
 export const CONTROL_HEIGHT = 50;
 export const CONTROL_BORDER_RADIUS = 4;
 export const CONTROL_PADDING_HORIZONTAL = 12;

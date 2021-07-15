@@ -1,6 +1,16 @@
 import createTheme from '@material-ui/core/styles/createTheme';
+import { BREAKPOINTS } from './consts';
 
 export default createTheme({
+  breakpoints: {
+    values: {
+      xs: BREAKPOINTS.XS,
+      sm: BREAKPOINTS.SM,
+      md: BREAKPOINTS.MD,
+      lg: BREAKPOINTS.LG,
+      xl: BREAKPOINTS.XL,
+    },
+  },
   overrides: {
     MuiIconButton: {
       root: {
