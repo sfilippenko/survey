@@ -11,7 +11,7 @@ export const skillsOptions: Option[] = [
   },
   {
     value: 3,
-    label: 'Гтовка',
+    label: 'Готовка',
   },
   {
     value: 4,
