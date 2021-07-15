@@ -7,13 +7,16 @@ import FormTitle from '../FormTitle';
 import { InputNumberFormField } from '../InputNumber';
 import { InputListFormField } from '../InputList';
 import { CheckboxListFormField } from '../CheckboxList';
-import { skillsOptions } from '../../contst/options';
+import { skillsOptions, marriageOptions, citiesOptions } from '../../contst/options';
+import { SelectFormField } from '../Select';
 
 interface Form {
   name: string;
   age: string;
   education: string[];
   skills: number[];
+  marriage: number;
+  birthdayPlace: number;
 }
 
 const initialValues: Form = {
@@ -21,6 +24,8 @@ const initialValues: Form = {
   age: '',
   education: [''],
   skills: [],
+  marriage: 2,
+  birthdayPlace: 0,
 };
 
 const validate = (values: Form) => {
@@ -57,16 +62,30 @@ const Root: FC = () => {
                   <InputNumberFormField name="age" required />
                 </Grid>
                 <Grid item xs={12} sm={3}>
+                  <FormTitle required>Семейное положение</FormTitle>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <SelectFormField name="marriage" required options={marriageOptions} />
+                </Grid>
+                <Grid item xs={12} sm={5} />
+                <Grid item xs={12} sm={3}>
                   <FormTitle>ВУЗ</FormTitle>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={7}>
                   <InputListFormField
                     name="education"
                     placeholder="Например, ВолгГАСУ"
                     helperText="Укажите учебные заведения, в которых вы учились"
                   />
                 </Grid>
-                <Grid item xs={12} sm={3} />
+                <Grid item xs={12} sm={2} />
+                <Grid item xs={12} sm={3}>
+                  <FormTitle>Место рождения</FormTitle>
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                  <SelectFormField name="birthdayPlace" required options={citiesOptions} />
+                </Grid>
+                <Grid item xs={12} sm={5} />
                 <Grid item xs={12} sm={3}>
                   <FormTitle>Навыки</FormTitle>
                 </Grid>

@@ -19,7 +19,11 @@ export default makeStyles({
       color: COLORS.GREY,
     },
     '&:disabled': {
+      color: COLORS.GREY,
       backgroundColor: COLORS.GREY_LIGHT,
+    },
+    '&:focus': {
+      outline: `1px auto ${COLORS.BLUE}`,
     },
   },
 });

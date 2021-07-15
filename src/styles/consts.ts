@@ -6,6 +6,7 @@ export const COLORS = {
   YELLOW_HOVER: '#fefe22',
   YELLOW_DARK: '#949400',
   RED: '#DC143C',
+  BLUE: '#1358bf',
 };
 
 export const CONTROL_HEIGHT = 50;

@@ -30,6 +30,17 @@ const CheckboxList: FC<Props> = (props) => {
     [onChange],
   );
 
+  const handleCheckAll = useCallback(
+    (checked: boolean) => {
+      if (checked) {
+        onChange(options.map((item) => item.value));
+      } else {
+        onChange([]);
+      }
+    },
+    [options, options],
+  );
+
   return (
     <div className={classes.container}>
       {options?.map((item) => {
@@ -44,6 +55,13 @@ const CheckboxList: FC<Props> = (props) => {
           />
         );
       })}
+      {!!options?.length && (
+        <Checkbox
+          value={value?.length === options?.length}
+          onChange={handleCheckAll}
+          label={<strong>Выделить все</strong>}
+        />
+      )}
     </div>
   );
 };

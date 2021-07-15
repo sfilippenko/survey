@@ -14,6 +14,7 @@ export default createTheme({
         body: {
           backgroundColor: '#ffffff',
           fontSize: 16,
+          color: '#000000',
         },
         input: {
           '&::-webkit-outer-spin-button': {
